@@ -94,4 +94,3 @@ Then, in PixInsight, *Resources > Updates > Check for Updates*.
   not): compare both modes with the same HF/LF values.
 * Auto STF defaults (shadows clipping -2.80 normalized MAD, target background 0.25) against what the
   STF tool's own AutoStretch gives on the same image (compare the STF values in the console).
-* Remove the GraXpert workaround from the README once the process is fixed.

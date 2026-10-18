@@ -92,34 +92,6 @@ Notes:
 * StarXTerminator *Unscreen Stars* is meant for stretched images; RC Astro recommends not using it on
   linear data.
 
-## Known issue: GraXpert process on Linux
-
-With GraXpert 4.0.0 and the GraXpert process build of 2026-10-17, on Linux, GraXpert writes
-`<name>_GraXpert.xisf` while the process looks for `<name>_graXpert.xisf`. Linux file names are
-case-sensitive, so the result is never loaded and the image comes back unchanged, while the console
-reports success. Windows and macOS are not affected.
-
-Until the process is fixed, a small launcher can rename the output. Point the GraXpert process (or
-your `PATH`) to a script like this one, with your own path to the GraXpert executable:
-
-```sh
-#!/bin/sh
-<path-to-GraXpert-executable> "$@"
-rc=$?
-case "$1" in
-  */Pix[0-9]*.*)
-    base="${1%.*}"
-    for f in "$base"_GraXpert*; do
-      [ -e "$f" ] || continue
-      mv -f -- "$f" "$(printf '%s' "$f" | sed 's/_GraXpert/_graXpert/')"
-    done
-    ;;
-esac
-exit $rc
-```
-
-Remove it once a fixed process is released, or it will break the process again.
-
 ## License
 
 Copyright (c) 2026 Jacques Pouyaud. Released under the [MIT License](LICENSE).
