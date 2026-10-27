@@ -1,6 +1,6 @@
 #engine v8
 
-#feature-id    NarrowbandStarless : Utilities > NarrowbandStarless
+#feature-id    NarrowbandStarless : JPS > NarrowbandStarless
 #feature-info  Runs the same linear pipeline on each narrowband master (SII, Ha, \
    OIII): GraXpert background extraction, BlurXTerminator, StarXTerminator and \
    NoiseXTerminator, one channel after the other, then an optional auto STF on the \
@@ -9,7 +9,7 @@
    images are left untouched (work on copies). Interface in English or French.
 
 /*
- * NarrowbandStarless.js  v1.0.1
+ * NarrowbandStarless.js  v1.0.2
  * Copyright (c) 2026 Jacques Pouyaud.
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Free software under the GNU General Public License, version 3 or (at your
@@ -18,6 +18,7 @@
  * under the direction of Jacques Pouyaud.
  * https://github.com/jps-34/NarrowbandStarless
  *
+ * v1.0.2: menu entry moved to Script > JPS (was Script > Utilities).
  * v1.0.0: first release.
  * ----------------------------------------------------------------------------
  * For each enabled channel (SII, Ha, OIII), on a copy of the selected view:
@@ -40,7 +41,7 @@
  */
 
 var TITLE = "NarrowbandStarless";
-var VERSION = "1.0.1";
+var VERSION = "1.0.2";
 var LANG_KEY = "NarrowbandStarless/language";
 var SETTINGS_KEY = "NarrowbandStarless/settings";
 var LANG = "en";

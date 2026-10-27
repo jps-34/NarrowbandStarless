@@ -47,7 +47,7 @@ Seuls les outils activés doivent être installés.
 1. *Resources > Updates > Manage Repositories*, ajouter
    `https://jps-34.github.io/NarrowbandStarless/`
 2. *Resources > Updates > Check for Updates*, puis redémarrer PixInsight.
-3. Le script apparaît dans *Script > Utilities > NarrowbandStarless*.
+3. Le script apparaît dans *Script > JPS > NarrowbandStarless* (*Script > Utilities* jusqu'à la 1.0.1).
 
 Tant que le dépôt n'est pas signé, PixInsight ne l'accepte qu'avec l'option de sécurité *Allow
 unsigned update repositories* activée.
@@ -55,7 +55,7 @@ unsigned update repositories* activée.
 ### Manuelle
 
 Télécharger `scripts/NarrowbandStarless.js`, puis le lancer par *Script > Execute Script File*, ou
-ajouter son dossier par *Script > Feature Scripts > Add* pour l'avoir dans *Script > Utilities*.
+ajouter son dossier par *Script > Feature Scripts > Add* pour l'avoir dans *Script > JPS*.
 
 ## Prise en main
 

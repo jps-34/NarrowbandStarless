@@ -5,10 +5,10 @@
       <p>Add https://jps-34.github.io/NarrowbandStarless/ under Resources &gt; Updates &gt; Manage Repositories.</p>
    </description>
    <platform os="all" arch="noarch" version="1.9.4:1.9.99">
-      <package fileName="NarrowbandStarless-1.0.1-PI194.zip" sha1="6b226ad0c8937ae341d3fd098dc53a680e69d9e5" type="script" releaseDate="20261027" serverURL="https://jps-34.github.io/NarrowbandStarless/">
-         <title>NarrowbandStarless 1.0.1 (PixInsight 1.9.4 and later)</title>
+      <package fileName="NarrowbandStarless-1.0.2-PI194.zip" sha1="a0352a7c422e8fb2ae03efaea04958b43255b05f" type="script" releaseDate="20261027" serverURL="https://jps-34.github.io/NarrowbandStarless/">
+         <title>NarrowbandStarless 1.0.2 (PixInsight 1.9.4 and later)</title>
          <description>
-            <p>Runs the same linear pipeline on each narrowband master (SII, Ha, OIII), one channel after the other: GraXpert AI background extraction, BlurXTerminator, StarXTerminator and NoiseXTerminator, then an optional auto STF. Views picked manually, main settings of each tool in advanced mode, source images left untouched (work on copies). English or French interface. Requires the GraXpert process and the RC Astro tools. Installs under Script &gt; Utilities &gt; NarrowbandStarless.</p>
+            <p>Runs the same linear pipeline on each narrowband master (SII, Ha, OIII), one channel after the other: GraXpert AI background extraction, BlurXTerminator, StarXTerminator and NoiseXTerminator, then an optional auto STF. Views picked manually, main settings of each tool in advanced mode, source images left untouched (work on copies). English or French interface. Requires the GraXpert process and the RC Astro tools. Installs under Script &gt; JPS &gt; NarrowbandStarless.</p>
             <p>Copyright (c) 2026 Jacques Pouyaud. GNU GPL v3 or later. Source: https://github.com/jps-34/NarrowbandStarless</p>
          </description>
       </package>

@@ -36,7 +36,7 @@ PACKAGES = [
                 "and NoiseXTerminator, then an optional auto STF. Views picked manually, main settings of each tool in advanced "
                 "mode, source images left untouched (work on copies). English or French interface. "
                 "Requires the GraXpert process and the RC Astro tools. "
-                "Installs under Script > Utilities > NarrowbandStarless.",
+                "Installs under Script > JPS > NarrowbandStarless.",
     },
 ]
 NOTICE = "Copyright (c) 2026 Jacques Pouyaud. GNU GPL v3 or later. Source: https://github.com/{user}/" + NAME
