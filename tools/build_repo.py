@@ -39,7 +39,7 @@ PACKAGES = [
                 "Installs under Script > Utilities > NarrowbandStarless.",
     },
 ]
-NOTICE = "Copyright (c) 2026 Jacques Pouyaud. MIT License. Source: https://github.com/{user}/" + NAME
+NOTICE = "Copyright (c) 2026 Jacques Pouyaud. GNU GPL v3 or later. Source: https://github.com/{user}/" + NAME
 
 
 def script_version(path):
