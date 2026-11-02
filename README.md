@@ -10,6 +10,10 @@ the other, with the same settings. The source images are never modified.
 Built for the author's own workflow (masters from CommonCrop, then this script, then SHO
 combination). Shared as is.
 
+**Not signed.** This script and its update repository are not code-signed, and they are not covered
+by the author's Certified PixInsight Developer identity. Running it needs the *Allow execution of
+unsigned scripts* security preference of PixInsight (enabled by default).
+
 ## What it does
 
 For each checked channel, on a copy of the selected view:
@@ -48,7 +52,7 @@ Only the enabled tools need to be installed.
 2. *Resources > Updates > Check for Updates*, then restart PixInsight.
 3. The script appears under *Script > JPS > NarrowbandStarless* (*Script > Utilities* up to 1.0.1).
 
-Until the repository is code-signed, PixInsight only accepts it with the *Allow unsigned update
+The repository is not signed: PixInsight only accepts it with the *Allow unsigned update
 repositories* security preference enabled.
 
 ### Manual

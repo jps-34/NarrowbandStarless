@@ -10,6 +10,11 @@ l'autre, avec les mêmes réglages. Les images sources ne sont jamais modifiées
 Conçu pour la chaîne de traitement de l'auteur (masters issus de CommonCrop, puis ce script, puis
 la combinaison SHO). Partagé tel quel.
 
+**Non signé.** Ce script et son dépôt de mises à jour ne sont pas signés, et ils ne relèvent pas de
+l'identité de développeur certifié PixInsight (Certified PixInsight Developer) de l'auteur. Pour
+l'exécuter, l'option de sécurité *Allow execution of unsigned scripts* de PixInsight doit être
+activée (elle l'est par défaut).
+
 ## Ce qu'il fait
 
 Pour chaque canal coché, sur une copie de l'image choisie :
@@ -49,8 +54,8 @@ Seuls les outils activés doivent être installés.
 2. *Resources > Updates > Check for Updates*, puis redémarrer PixInsight.
 3. Le script apparaît dans *Script > JPS > NarrowbandStarless* (*Script > Utilities* jusqu'à la 1.0.1).
 
-Tant que le dépôt n'est pas signé, PixInsight ne l'accepte qu'avec l'option de sécurité *Allow
-unsigned update repositories* activée.
+Le dépôt n'est pas signé : PixInsight ne l'accepte qu'avec l'option de sécurité *Allow unsigned
+update repositories* activée.
 
 ### Manuelle
 
