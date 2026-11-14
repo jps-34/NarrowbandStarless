@@ -42,7 +42,7 @@
  */
 
 var TITLE = "NarrowbandStarless";
-var VERSION = "1.0.3";
+var VERSION = "1.0.4";
 var LANG_KEY = "NarrowbandStarless/language";
 var SETTINGS_KEY = "NarrowbandStarless/settings";
 var LANG = "en";
@@ -675,9 +675,37 @@ constructor()
    this.numerics = {};
    this.checks = {};
 
+   // Scrollable area holding all the groups: the dialog stays on screen and the
+   // Run button stays reachable whatever the number of advanced groups shown
+   // (same layout as BroadbandStarless 1.0.5).
+   // Manual scrolling: the content control is laid out at its natural size
+   // inside the viewport and moved up by the scroll position; the vertical range
+   // is the overflow of the content over the visible area.
+   this.scrollBox = new ScrollBox( this );
+   this.scrollBox.autoScroll = false;
+   this.scrollBox.horizontalScrollBarVisible = false;
+   this.scrollBox.verticalScrollBarVisible = true;
+   this.scrollBox.setScaledMinHeight( 520 );
+   this.content = new Control( this.scrollBox.viewport );
+   // The viewport of a ScrollBox is painted with the theme's dark base colour:
+   // give the viewport and the scrolled content the dialog's own background colour.
+   this.scrollBox.viewport.backgroundColor = this.backgroundColor;
+   this.content.backgroundColor = this.backgroundColor;
+   this.content.sizer = new VerticalSizer;
+   this.content.sizer.margin = 2;
+   this.content.sizer.spacing = 8;
+   this.scrollBox.onVerticalScrollPosUpdated = function( pos )
+   {
+      self.content.move( 0, -pos );
+   };
+   this.scrollBox.viewport.onResize = function()
+   {
+      self.updateScrollRange();
+   };
+
    function makeGroup( title )
    {
-      var g = new GroupBox( self );
+      var g = new GroupBox( self.content );
       g.title = title;
       g.sizer = new VerticalSizer;
       g.sizer.margin = 6;
@@ -941,21 +969,62 @@ constructor()
    bRow.add( this.runButton );
    bRow.add( this.closeButton );
 
+   var vs = this.content.sizer;
+   vs.add( this.imagesGroup );
+   vs.add( this.pipeGroup );
+   vs.add( this.gxGroup );
+   vs.add( this.bxtGroup );
+   vs.add( this.sxtGroup );
+   vs.add( this.nxtGroup );
+   vs.add( this.stfGroup );
+   vs.addStretch();
+
    this.sizer = new VerticalSizer;
    this.sizer.margin = 8;
    this.sizer.spacing = 8;
    this.sizer.add( this.helpLabel );
-   this.sizer.add( this.imagesGroup );
-   this.sizer.add( this.pipeGroup );
-   this.sizer.add( this.gxGroup );
-   this.sizer.add( this.bxtGroup );
-   this.sizer.add( this.sxtGroup );
-   this.sizer.add( this.nxtGroup );
-   this.sizer.add( this.stfGroup );
+   this.sizer.add( this.scrollBox, 100 );
    this.sizer.add( langRow );
    this.sizer.add( bRow );
+   this.userResizable = true;
 
    this.updateControls();
+}
+
+// Resize the scroll viewport to its contents, so the vertical scroll bar
+// follows the groups currently shown.
+layoutScroll()
+{
+   var c = this.content;
+   c.setMinSize( 1, 1 );
+   c.adjustToContents();
+   this.contentMinWidth = c.width;
+   var h = c.height;
+   c.setMinSize( c.width, h );
+   var bw = c.width + this.logicalPixelsToPhysical( 24 );
+   if ( this.scrollBox.minWidth < bw )
+      this.scrollBox.setMinWidth( bw );
+   this.updateScrollRange();
+}
+
+// Vertical scroll range from the overflow of the content over the viewport;
+// the content is stretched to the viewport width so the groups fill it.
+updateScrollRange()
+{
+   if ( !this.content || !this.scrollBox )
+      return;
+   var vp = this.scrollBox.viewport;
+   var c = this.content;
+   var w = Math.max( this.contentMinWidth || c.width, vp.width );
+   if ( c.width != w )
+      c.resize( w, c.height );
+   var max = Math.max( 0, c.height - vp.height );
+   this.scrollBox.setVerticalScrollRange( 0, max );
+   this.scrollBox.pageHeight = vp.height;
+   this.scrollBox.lineHeight = this.logicalPixelsToPhysical( 24 );
+   var pos = Math.min( this.scrollBox.verticalScrollPosition, max );
+   this.scrollBox.verticalScrollPosition = pos;
+   c.move( 0, -pos );
 }
 
 // Push the settings into the controls.
@@ -1019,6 +1088,7 @@ refresh()
    n.nxtDenoiseColorLF.visible     =  cs &&  fs;
    n.nxtFrequencyScale.visible     =  fs;
 
+   this.layoutScroll();
    this.adjustToContents();
 }
 };

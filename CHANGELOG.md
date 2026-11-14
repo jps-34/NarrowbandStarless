@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.4 (2026-11-15)
+* Dialog: the settings (Images, Pipeline and the advanced groups) now sit in a scrolled area, as in
+  BroadbandStarless. In advanced mode the dialog was taller than a usual screen and the Run button
+  could end up out of reach; the buttons now stay visible at the bottom and the dialog can be resized.
+  No change to the processing.
+
 ## 1.0.3 (2026-10-30)
 * Return no longer runs a button of the dialog: PixInsight 1.9.6 activates the first button of a dialog
   when Return is pressed in an edit box, which could start a run or reset the settings.
